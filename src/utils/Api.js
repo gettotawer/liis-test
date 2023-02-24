@@ -21,7 +21,7 @@ class HotelsApi {
   }
   
   const hotelsApi = new HotelsApi({
-    url: 'http://engine.hotellook.com/api/v2',
+    url: 'https://engine.hotellook.com/api/v2',
   });
   
   export default hotelsApi;
