@@ -1,0 +1,4 @@
+export const CHANGE_DATE ='CHANGE_DATE'
+export const CHANGE_CITY ='CHANGE_CITY'
+export const CHANGE_DAYS ='CHANGE_DAYS'
+export const GET_HOTELS_ARRAY = 'GET_HOTELS_ARRAY'

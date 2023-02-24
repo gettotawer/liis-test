@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    padding: 32px;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1440px;
+    box-sizing: border-box;
+}
+
+.header__logo {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #424242;
+    margin: 0;
+}
+
+.header__button {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.408px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #41522E;
+}
+
+.header__button-image {
+    margin-left: 15px;
+    background-image: url(../../images/logOut.svg);
+    height: 24px;
+    width: 24px;
+    background-position: center;
+    background-size: contain;
+}

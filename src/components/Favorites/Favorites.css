@@ -1,0 +1,297 @@
+.favorites {
+    padding: 32px;
+    max-width: 360px;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
+    border-radius: 16px;
+    min-height: 472px;
+    box-sizing: border-box;
+}
+
+.favorites__title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    color: #424242;
+    margin: 0;
+    padding-bottom: 32px;
+}
+
+.favorites__sort-container {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    padding: 0;
+    padding-bottom: 32px;
+}
+
+.favorites__sort-item {
+    position: relative;
+    padding: 4px 8px;
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 4px;
+    margin-right: 8px;
+    padding-right: 30px;
+    cursor: pointer;
+}
+
+.favorites__sort-item::after {
+    position: absolute;
+    content: '';
+    width: 8.49px;
+    height: 12.08px;
+    background-image: url(../../images/selectGroup.svg);
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 8px;
+    right: 12.5px;
+}
+
+.favorites__sort-item_low-to-high {
+    background: #FFFFFF;
+    border: 1px solid #41522E;
+}
+
+.favorites__sort-item_low-to-high::after {
+    position: absolute;
+    content: '';
+    width: 8.49px;
+    height: 5.3px;
+    background-image: url(../../images/selectBold.svg);
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 8px;
+    right: 12.5px;
+}
+
+.favorites__sort-item_low-to-high::before {
+    position: absolute;
+    content: '';
+    width: 8.49px;
+    height: 5.3px;
+    background-image: url(../../images/selectGrey.svg);
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    bottom: 7.82px;
+    right: 12.5px;
+}
+
+.favorites__sort-item_high-to-low {
+    background: #FFFFFF;
+    border: 1px solid #41522E;
+}
+
+.favorites__sort-item_high-to-low::after {
+    position: absolute;
+    content: '';
+    width: 8.49px;
+    height: 5.3px;
+    background-image: url(../../images/selectGrey.svg);
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 8px;
+    right: 12.5px;
+    transform: rotate(180deg);
+}
+
+.favorites__sort-item_high-to-low::before {
+    position: absolute;
+    content: '';
+    width: 8.49px;
+    height: 5.3px;
+    transform: rotate(180deg);
+    background-image: url(../../images/selectBold.svg);
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    bottom: 7.82px;
+    right: 12.5px;
+}
+
+.favorites__sort-text {
+    margin: 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.408px;
+    color: #99A0A3;
+}
+
+.favorites__sort-text_selected {
+    color: #41522E;
+}
+
+.favorite__items-container {
+    margin: 0;
+    width: 100%;
+}
+
+.favorite__items-container {
+    padding-left: 0;
+    max-height: 288px;
+    overflow-y: scroll;
+}
+
+.favorite__items-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* .favorite__item {
+    padding-left: 0;
+    list-style: none;
+    padding-top: 16px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(135, 135, 135, 0.2);
+} */
+
+.favorite__item:nth-child(1){
+    padding-top: 0px;
+}
+
+.favorite__item:nth-last-child(1){
+    padding-bottom: 0px;
+    border-bottom: none;
+}
+
+.favorite__item {
+    padding-left: 0;
+    list-style: none;
+    padding-top: 16px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(135, 135, 135, 0.2);
+    display: grid;
+    grid-template-columns: 98px 22px 66px 36px 53px 21px;
+    grid-template-rows: repeat(3, 22px);
+    row-gap: 4px;
+    align-items: start;
+    justify-content: center;
+}
+
+.favorite__item-stars-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 99px;
+    width: 100%;
+}
+
+.favorite__item-name {
+    text-align: start;
+    margin: 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 30px;
+    letter-spacing: -0.408px;
+    color: #424242;
+
+    grid-column: 1 /6;
+    grid-row: 1;
+}
+
+.favorite__item-button {
+    cursor: pointer;
+    align-self: end;
+    grid-column: 6/7;
+    background-image: url(../../images/heart.svg);
+    width: 21px;
+    height: 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: all 0.2s;
+}
+
+.favorite__item-date {
+    margin: 0;
+    text-align: start;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.408px;
+    color: #878787;
+}
+
+.favorite__item-space {
+    height: 1px;
+    width: 9px;
+    background: #C4C4C4;
+    border-radius: 2px;
+    align-self: center;
+}
+
+.favorite__item-days {
+    text-align: start;
+    align-self: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.408px;
+    color: #878787;
+    margin: 0;
+}
+
+.favorite__item-price {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 22px;
+    letter-spacing: -0.408px;
+    color: #878787;
+    margin: 0;
+    grid-row: 3/4;
+    grid-column: 4/5;
+}
+
+.favorite__item-price-ammount {
+    grid-row: 3/4;
+    grid-column: 5/7;
+    margin: 0;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 22px;
+    text-align: right;
+    letter-spacing: -0.408px;
+    color: #424242;
+}
+
+.favorite__item-stars-container {
+    grid-row: 3/4;
+}
+
+.favorite__item-button:hover {
+    background-image: url(../../images/hoveredHeart.svg);
+}
+
+.favorite__item-star {
+    width: 17px;
+    height: 17px;
+    background-image: url(../../images/star.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.favorite__item-star_active {
+    background-image: url(../../images/filledStar.svg);
+}

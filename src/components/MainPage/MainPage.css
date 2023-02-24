@@ -1,0 +1,17 @@
+.main-page {
+    display: flex;
+    flex-direction: column;
+    background: #F4F4F4;
+    width: 100%;
+    min-height: 1024px;
+    height: 100vh;
+}
+
+.main-page__content {
+    margin: 0 auto;
+    display: grid;
+    max-width: 1024px;
+    grid-template-columns: 35.14% 64.8%;
+    gap: 24px;
+    grid-template-rows: 410px 472px;
+}
