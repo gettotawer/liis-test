@@ -1,8 +1,8 @@
 import './Settings.css';
 import { useDispatch, useSelector } from 'react-redux'
-import { changeCity, changeDate, changeDays, setHotelsArray } from '../../redux/actions/actionCreator';
+import { changeCity, changeDate, changeDays, getHotelsArray, changeLeavingDate, setDays, setCheckIn, setCity } from '../../redux/actions/actionCreator';
 
-function Settings(e) {
+function Settings() {
     const dispatch = useDispatch();
     const state = useSelector(state => state)
 
@@ -11,16 +11,25 @@ function Settings(e) {
     }
 
     const handleChangeDate = (e) => {
+        const date = new Date(e.target.value);
+        date.setDate(date.getDate() + Number(state.settings.days));
         dispatch(changeDate(e.target.value.split('.').reverse().join('-')))
+        dispatch(changeLeavingDate(date.toLocaleDateString().split('.').reverse().join('-')))
     }
 
     const handleChangeDays = (e) => {
+        const date = new Date(state.settings.date);
+        date.setDate(date.getDate() + Number(e.target.value));
         dispatch(changeDays(e.target.value))
+        dispatch(changeLeavingDate(date.toLocaleDateString().split('.').reverse().join('-')))
     }
 
     const handleButtonClick = (e) => {
         e.preventDefault();
-        dispatch(setHotelsArray(state));
+        dispatch(getHotelsArray(state));
+        dispatch(setDays(state.settings.days));
+        dispatch(setCheckIn(state.settings.date));
+        dispatch(setCity(state.settings.city));
     }
     
 

@@ -7,14 +7,25 @@ import img4 from '../../images/img4.jpg'
 import img5 from '../../images/img5.jpg'
 import Hotel from '../Hotel/Hotel';
 
+import { useDispatch, useSelector } from 'react-redux'
+import { getHotelsArray } from '../../redux/actions/actionCreator';
+import { monthsRU } from '../../consts/months';
+
 function Hotels() {
+    const state = useSelector(state => state)
+    const dispatch = useDispatch();
+
+    React.useEffect(()=> {
+        dispatch(getHotelsArray(state));
+    }, [])
+
 
   return (
     <div className="hotels">
         <h1 className='hotels__title'>Отели</h1>
         <div className='hotels__symbol'></div>
-        <p className='hotels__city'>Москва</p>
-        <p className='hotels__date'>07 июля 2020</p>
+        <p className='hotels__city'>{state.hotels.city}</p>
+        <p className='hotels__date'>{state.hotels.checkIn.split('-')[2]} {monthsRU[state.hotels.checkIn.split('-')[1]-1]} {state.hotels.checkIn.split('-')[0]}</p>
         <div className='hotels__images-collection'>
             <img src={img1} alt='Москва' className='hotels__image'></img>
             <img src={img2} alt='Москва' className='hotels__image'></img>
@@ -23,26 +34,12 @@ function Hotels() {
             <img src={img5} alt='Петергоф' className='hotels__image'></img>
         </div>
         <div className='hotels__container'>
-            <p className='hotels__container-text'>Добавлено в Избранное:<span className='hotels__container-text-highlited'>3</span> отеля</p>
+            <p className='hotels__container-text'>Добавлено в Избранное:<span className='hotels__container-text-highlited'>{state.favorites.hotels.length}</span> отеля</p>
             <ul className='hotels__items-container'>
-                <li className='hotels__item'>
-                    <div className='hotels__item-image'></div>
-                    <p className='hotels__item-name'>Moscow Marriott Grand Hotel</p>
-                    <div className='hotels__item-button'></div>
-                    <p className='hotels__item-date'>28 June, 2020</p>
-                    <div className='hotels__item-space'></div>
-                    <p className='hotels__item-days'>1 день</p>
-                    <div className='hotels__item-stars-container'>
-                        <div className='hotels__item-star hotels__item-star_active'></div>
-                        <div className='hotels__item-star hotels__item-star_active'></div>
-                        <div className='hotels__item-star hotels__item-star_active'></div>
-                        <div className='hotels__item-star'></div>
-                        <div className='hotels__item-star'></div>
-                    </div>
-                    <p className='hotels__item-price'>Price</p>
-                    <p className='hotels__item-price-ammount'>23 924 Р</p>
-                </li>
-                <Hotel name={'Moscow Marriott Grand Hotel'} date={'28 June, 2020'} days={'1 день'} stars={3} price={'23 924'}/>
+                {state.hotels.hotels.length === 0 && <p className='hotels__not-found'>Ничего не найдено. Проверьте правильность введенных данных.</p>}
+                {state.hotels.hotels.length !== 0 && state.hotels.hotels.map((hotel)=> {
+                    return <Hotel hotel={hotel} key={hotel.hotelId} name={hotel.hotelName} date={state.hotels.checkIn} days={state.hotels.days} stars={hotel.stars} price={hotel.priceAvg}/>
+                })}
             </ul>
         </div>
     </div>

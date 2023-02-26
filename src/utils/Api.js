@@ -11,12 +11,14 @@ class HotelsApi {
     }
   
     getHotels(city, checkIn, checkOut) {
-      return fetch(`${this._url}/cache.json?location=${city}&currency=rub&checkIn=${checkIn}&&checkOut=${checkOut}&limit=10`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }).then((res) => this.checRes(res));
+        return fetch(`${this._url}/cache.json?location=${city}&currency=rub&checkIn=${checkIn}&&checkOut=${checkOut}&limit=10`, {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+        }).then((res) => this.checRes(res)).then((res) => {
+            return res
+        });
     }
   }
   

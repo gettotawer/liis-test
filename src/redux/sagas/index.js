@@ -1,12 +1,18 @@
-import { takeEvery, put } from 'redux-saga/effects'
+import { takeEvery, put, call, select } from 'redux-saga/effects'
 import { GET_HOTELS_ARRAY } from '../../consts/constActions';
-import { getHotelsArray } from '../actions/actionCreator';
+import { setHotelsArray } from '../actions/actionCreator';
 import hotelsApi from '../../utils/Api';
 
-
 export function* workerSaga() {
-    // hotelsApi.getHotels('Москва', '2023-03-03', '2023-03-03')
-    console.log(hotelsApi.getHotels('Москва', '2023-03-03', '2023-03-03'))
+    const store = yield select(s => s)
+
+    const hotels = yield call(() => hotelsApi.getHotels(store.settings.city, store.settings.date, store.settings.leavingDate)
+        .then((res) => res)
+        .catch((err) => {
+            console.log(err)
+            return []
+        }))
+    yield put(setHotelsArray(hotels))
 }
 
 export function* watchFetchSaga() {
