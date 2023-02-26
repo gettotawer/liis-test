@@ -69,4 +69,6 @@ https://support.travelpayouts.com/hc/ru/articles/115000343268-API-%D0%B4%D0%B0%D
 
 `Пишем в терминале команду: "C:\chrome.exe" —user-data-dir="C://chrome-dev-disabled-security" —disable-web-security —disable-site-isolation-trials, где "C:\chrome.exe" - это путь до исполняемого файла Google Chrome`
 
-Ссылка на vercel: https://liis-test-seven.vercel.app/
+## Ссылка на vercel:
+
+https://liis-test-seven.vercel.app/
