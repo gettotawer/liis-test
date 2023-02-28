@@ -14,7 +14,7 @@ import { monthsRU } from '../../consts/months';
 function Hotels() {
     const state = useSelector(state => state)
     const dispatch = useDispatch();
-
+    
     React.useEffect(()=> {
         dispatch(getHotelsArray(state));
     }, [])
